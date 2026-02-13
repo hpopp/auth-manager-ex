@@ -70,7 +70,7 @@ defmodule AuthManager.Adapter.LiveTest do
       response = Live.list_sessions(subject_id: sid)
 
       assert response.status == "success"
-      assert length(response.data["items"]) >= 1
+      assert response.data["items"] != []
     end
 
     test "returns empty list for nonexistent subject" do
@@ -168,7 +168,7 @@ defmodule AuthManager.Adapter.LiveTest do
       response = Live.list_api_keys(subject_id: sid)
 
       assert response.status == "success"
-      assert length(response.data["items"]) >= 1
+      assert response.data["items"] != []
     end
 
     test "returns empty list for nonexistent subject" do
