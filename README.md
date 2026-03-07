@@ -9,7 +9,7 @@ Add `auth_manager` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:auth_manager, git: "git@github.com:hpopp/auth-manager-ex.git", tag: "v0.1.0"}
+    {:auth_manager, github: "hpopp/auth-manager-ex", tag: "v0.2.0"}
   ]
 end
 ```
@@ -32,11 +32,12 @@ AUTH_MANAGER_ENDPOINT=http://localhost:8080
 
 ```elixir
 # Sessions
-AuthManager.create_session(%{subject_id: "user-123", ttl_seconds: 3600})
+AuthManager.create_session(%{subject_id: "user-123", ttl_seconds: 3600, renewable: true})
 AuthManager.verify_session("token-value")
 AuthManager.get_session("uuid")
 AuthManager.list_sessions(subject_id: "user-123")
 AuthManager.revoke_session("uuid")
+AuthManager.revoke_session_by_token("token-value")
 
 # API Keys
 AuthManager.create_api_key(%{name: "My Key", subject_id: "user-123", scopes: ["read"]})
