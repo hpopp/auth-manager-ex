@@ -1,6 +1,6 @@
 services:
   auth-manager:
-    image: hpopp/auth-manager:0.5.1
+    image: hpopp/auth-manager:0.9.0
     ports:
       - "8080:8080"
     environment:
