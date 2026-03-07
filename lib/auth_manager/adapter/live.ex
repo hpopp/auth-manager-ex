@@ -67,6 +67,15 @@ defmodule AuthManager.Adapter.Live do
   end
 
   @impl true
+  @spec revoke_session_by_token(String.t()) :: JSend.t()
+  def revoke_session_by_token(token) do
+    case Req.post(client(), url: "/sessions/revoke", json: %{token: token}) do
+      {:ok, resp} -> decode_response(resp.body)
+      {:error, exception} -> error_response(exception)
+    end
+  end
+
+  @impl true
   @spec create_api_key(%{atom() => term()}) :: JSend.t()
   def create_api_key(params) do
     case Req.post(client(), url: "/api-keys", json: params) do

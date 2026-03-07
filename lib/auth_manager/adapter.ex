@@ -33,6 +33,11 @@ defmodule AuthManager.Adapter do
   @callback revoke_session(String.t()) :: JSend.t()
 
   @doc ~S"""
+  Revoke a session by token.
+  """
+  @callback revoke_session_by_token(String.t()) :: JSend.t()
+
+  @doc ~S"""
   Create an API key.
   """
   @callback create_api_key(%{(String.t() | atom()) => any}) :: JSend.t()

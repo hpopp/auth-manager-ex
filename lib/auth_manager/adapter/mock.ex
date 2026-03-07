@@ -53,6 +53,11 @@ defmodule AuthManager.Adapter.Mock do
   end
 
   @impl true
+  def revoke_session_by_token(_token) do
+    JSend.success(%{})
+  end
+
+  @impl true
   def create_api_key(params) do
     params = stringify_keys(params)
 

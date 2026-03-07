@@ -165,6 +165,22 @@ defmodule AuthManager do
   end
 
   @doc ~S"""
+  Revoke a session by token.
+
+  ## Examples
+
+      iex> AuthManager.revoke_session_by_token("example-token")
+      %JSend{
+        status: "success",
+        data: %{}
+      }
+  """
+  @spec revoke_session_by_token(String.t()) :: JSend.t()
+  def revoke_session_by_token(token) do
+    adapter().revoke_session_by_token(token)
+  end
+
+  @doc ~S"""
   Create an API key.
 
   ## Examples
