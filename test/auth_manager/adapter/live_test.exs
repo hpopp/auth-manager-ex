@@ -112,6 +112,17 @@ defmodule AuthManager.Adapter.LiveTest do
     assert_not_found(response)
   end
 
+  test "revoke_session_by_token/1 revokes a session by token" do
+    %{data: %{"token" => token}} =
+      Live.create_session(%{subject_id: subject_id(), ttl_seconds: 300})
+
+    response = Live.revoke_session_by_token(token)
+    assert response.status == "success"
+
+    response = Live.verify_session(token)
+    assert_not_found(response)
+  end
+
   describe "create_api_key/1" do
     test "creates a new API key" do
       sid = subject_id()
