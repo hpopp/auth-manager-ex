@@ -9,7 +9,7 @@ defmodule AuthManager.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       cli: cli(),
-      test_coverage: [tool: SonarQube.Coverage, threshold: 0],
+      test_coverage: [tool: SonarQube.Coverage, summary: [threshold: 0]],
       description: "Elixir client library for the auth-manager service"
     ]
   end
