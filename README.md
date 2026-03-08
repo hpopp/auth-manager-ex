@@ -2,6 +2,11 @@
 
 > Elixir client library for the [auth-manager](https://github.com/hpopp/auth-manager) service.
 
+[![CI](https://github.com/hpopp/auth-manager-ex/actions/workflows/ci.yml/badge.svg)](https://github.com/hpopp/auth-manager-ex/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarqube.hpopp.dev/api/project_badges/measure?project=auth-manager-ex&metric=alert_status&token=sqb_91c05c59cfa2786d9b84f64fa1777bd63bf297b4)](https://sonarqube.hpopp.dev/dashboard?id=auth-manager-ex)
+[![GitHub Release](https://img.shields.io/github/v/release/hpopp/auth-manager-ex)](https://github.com/hpopp/auth-manager-ex/releases)
+[![Last Updated](https://img.shields.io/github/last-commit/hpopp/auth-manager-ex.svg)](https://github.com/hpopp/auth-manager-ex/commits/main)
+
 ## Installation
 
 Add `auth_manager` to your list of dependencies in `mix.exs`:
