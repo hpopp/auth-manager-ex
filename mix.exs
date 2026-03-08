@@ -8,8 +8,14 @@ defmodule AuthManager.MixProject do
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      cli: cli(),
+      test_coverage: [tool: SonarQube.Coverage],
       description: "Elixir client library for the auth-manager service"
     ]
+  end
+
+  def cli do
+    [preferred_envs: ["sonarqube.coverage": :test]]
   end
 
   def application do
@@ -24,7 +30,8 @@ defmodule AuthManager.MixProject do
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.27", only: [:dev], runtime: false},
       {:jsend, "~> 0.1.0"},
-      {:req, "~> 0.5"}
+      {:req, "~> 0.5"},
+      {:sonarqube, "~> 0.1.0", only: [:dev, :test], runtime: false}
     ]
   end
 end
